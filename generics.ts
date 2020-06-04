@@ -45,6 +45,7 @@ const str = echoWithLength('str')
 const obj = echoWithLength({length:10,with:10})
 const arr2 = echoWithLength([1,2,3])
 // const number = echoWithLength(12) 报错
+//这就是活生生鸭子类型出现了 只要你叫起来像鸭子 ，只要你有length属性 ，那么就符合这个约束，就没有问题，不管你是什么类型都可以
 
 
 
