@@ -92,3 +92,16 @@ function connect (a:string,b:string):string{
 
 const a:IPlus<number> = plus
 const b:IPlus<string> = connect
+
+
+// 查询对象中某一个属性的值  希望属性存在对象中 用 keyof 关键字约束
+function getProperty<T, K extends keyof T>(obj:T,key:K){
+    return obj[key]
+}
+let x = {a:1,b:2,c:3,d:4}
+getProperty(x,'d')
+// getProperty(x,'m')  //报错
+
+function create<T>(c:{new ():T}):T{
+    return new c()
+}
