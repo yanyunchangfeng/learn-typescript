@@ -102,6 +102,45 @@ let x = {a:1,b:2,c:3,d:4}
 getProperty(x,'d')
 // getProperty(x,'m')  //报错
 
-function create<T>(c:{new ():T}):T{
+function create<T>(c:{new ():T}):T{ // 构造器类型
     return new c()
 }
+class BeeKeeper {
+    hasMask: boolean
+}
+class LionKeeper{
+    nametgg: string
+}
+class Animals {
+    numLengs: number
+}
+class Bee extends Animals{
+    keeper:BeeKeeper
+}
+
+class Lion extends Animals{
+    keeper:LionKeeper
+}
+
+function createInstance<T extends Animals>(c:new ()=> T
+):T{
+    return new c()
+}
+createInstance(Lion).keeper.nametgg
+createInstance(Bee).keeper.hasMask
+
+
+function identity<T>(arg:T):T{
+    return arg
+}
+let myIentity :<T>(arg:T) => T = identity // let myIentity :{<T>(arg:T):T} = identity  还可以使用带有调用签名的对象字面量的方式来定义类型
+//改造 使用接口
+interface GenericIdentityFn{
+    <T>(arg:T):T
+}
+let mynewIentity:GenericIdentityFn = identity
+//继续改造 把类型提出来 
+interface GenericIdentityFnT<T>{
+    (arg:T):T
+}
+let mynewIentityT:GenericIdentityFnT<number> = identity

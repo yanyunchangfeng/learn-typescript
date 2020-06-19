@@ -23,7 +23,7 @@
 3.  [函数和类型推断](function.ts)   
 4.  [class](class.ts)   
 5.  [enum](enums.ts)   
-6.  [generics](generis.ts)   
+6.  [generics](generics.ts)   
 
 
 
