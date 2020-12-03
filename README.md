@@ -24,6 +24,7 @@
 4.  [class](class.ts)   
 5.  [enum](enums.ts)   
 6.  [generics](generics.ts)   
+7.  [类型和类型别名](more.ts)   
 
 
 
