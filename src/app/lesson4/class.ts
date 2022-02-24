@@ -20,7 +20,7 @@ class Dog extends Animal {
 const xiaobao  = new Dog('xiaoao')
 
 class Cat extends Animal {
-   constructor(name){
+   constructor(name:string){
        super(name)
    }
    run(){
@@ -59,3 +59,4 @@ class CellPhone implements RadioWithBattery{
 }
 
 // 这就是鸭子类型的精髓 只要它走路像鸭子 叫起来像鸭子 我就不管你是什么东西 我可以用它来约束各种概念上毫不相关的内容
+export { }

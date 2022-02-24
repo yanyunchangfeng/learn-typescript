@@ -1,3 +1,21 @@
 {
-    "include": ["**/*"]//帮我编译当前文件夹下的所有文件
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "allowJs": true,
+        "module": "esnext",
+        "strict": false,
+        "target": "es2020",
+        "sourceMap": true,
+        "jsx": "react",
+        "typeRoots": ["./node_modules/@types","./src/@types"],
+        "baseUrl": ".",
+        "paths": {
+           "src/*":["./src/*"] 
+        },
+        "preserveConstEnums": true, // 编译结果保留const定义的常量枚举 默认关闭
+        "experimentalDecorators": true
+    },
+    "include": ["./src/**/*"]
 }
