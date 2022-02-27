@@ -19,6 +19,7 @@
 5.  [enum](src/app/lesson5/enums.ts)
 6.  [generics](src/app/lesson6/generics.ts)
 7.  [类型和类型别名](src/app/lesson7/more.ts)
+8.  [模块和命名空间](src/app/lesson10/index.ts)
 
 ## 我的个人博客
 
