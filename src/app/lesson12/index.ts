@@ -1,3 +1,6 @@
+// import './promise'
+// import './callbacks'
+// import './EventEmitter'
 abstract class Student{
     constructor(public teacher: Teacher) {
         
