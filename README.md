@@ -24,6 +24,7 @@
 ## 设计模式
 
 1.  [观察者模式](src/app/lesson12/index.ts) [EventEmitter](src/app/lesson12/EventEmitter.ts) [promise](src/app/lesson12/promise.ts) [callbacks](src/app/lesson12/callbacks.ts) [fs.createReadStream](src/app/lesson12/createReadStream.ts) [http.createServer](src/app/lesson12/http.ts)
+2.  [发布订阅模式](src/app/lesson13/index.ts)
 
 ## 我的个人博客
 
