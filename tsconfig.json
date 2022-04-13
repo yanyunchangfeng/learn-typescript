@@ -6,16 +6,28 @@
         "allowJs": true,
         "module": "esnext",
         "strict": false,
+        "strictNullChecks": true,
         "target": "es2020",
         "sourceMap": true,
         "jsx": "react",
-        "typeRoots": ["./node_modules/@types","./src/@types"],
+        "lib": [
+            "ESNext",
+            "DOM" //console方法内置于DOM
+        ],
+        "typeRoots": [
+            "./node_modules/@types",
+            "./src/@types"
+        ],
         "baseUrl": ".",
         "paths": {
-           "src/*":["./src/*"] 
+            "src/*": [
+                "./src/*"
+            ]
         },
         "preserveConstEnums": true, // 编译结果保留const定义的常量枚举 默认关闭
         "experimentalDecorators": true
     },
-    "include": ["./src/**/*"]
+    "include": [
+        "./src/**/*"
+    ]
 }
