@@ -21,11 +21,6 @@
 7.  [类型和类型别名](src/app/lesson7/more.ts)
 8.  [模块和命名空间](src/app/lesson10/index.ts)
 
-## 设计模式
-
-1.  [观察者模式](src/app/lesson12/index.ts) [EventEmitter](src/app/lesson12/EventEmitter.ts) [promise](src/app/lesson12/promise.ts) [callbacks](src/app/lesson12/callbacks.ts) [fs.createReadStream](src/app/lesson12/createReadStream.ts) [http.createServer](src/app/lesson12/http.ts)
-2.  [发布订阅模式](src/app/lesson13/index.ts)
-
 ## 我的个人博客
 
 - [燕云长风](https://www.yanyunchangfeng.com)

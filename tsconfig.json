@@ -6,7 +6,7 @@
         "allowJs": true,
         "module": "esnext",
         "strict": false,
-        "strictNullChecks": true,
+        "strictNullChecks": false,
         "target": "es2020",
         "sourceMap": true,
         "jsx": "react",
