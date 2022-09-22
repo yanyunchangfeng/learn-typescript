@@ -99,20 +99,20 @@ function create<T>(c: { new (): T }): T {
   return new c();
 }
 class BeeKeeper {
-  hasMask: boolean;
+  hasMask: boolean = false;
 }
 class LionKeeper {
-  nametgg: string;
+  nametgg: string = "";
 }
 class Animals {
-  numLengs: number;
+  numLengs: number = 3;
 }
 class Bee extends Animals {
-  keeper: BeeKeeper;
+  keeper!: BeeKeeper;
 }
 
 class Lion extends Animals {
-  keeper: LionKeeper;
+  keeper!: LionKeeper;
 }
 
 function createInstance<T extends Animals>(c: new () => T): T {

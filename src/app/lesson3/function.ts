@@ -14,16 +14,8 @@ const add = function (x: number, y: number, z: number = 10): number {
     return x + y;
   }
 };
-const add2: (x: number, y: number, z: number) => number = add; //  =>表示返回值
-//这里我们没有定义add 的类型但是typescript会自动的进行类型推断
+const add2: (x: number, y: number, z?: number) => number = add; //  =>表示返回值
+//这里我们没有定义add 的类型但是typscript 会自动的进行类型推断
 
 // 再看这个例子会更容易理解
-let stri = "112"; //在赋值的过程中推断为string类型
-// 类型推导
-let uname;
-uname = 1;
-uname = "string";
-uname = null;
-
-let uname2 = "yycf";
-// uname2 = true;
+let stri = "112"; //再赋值 的过程中推断为string类型
