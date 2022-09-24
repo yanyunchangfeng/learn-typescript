@@ -153,3 +153,19 @@ let v: void;
 v = undefined;
 
 // 字符串 数字 布尔类型 元组 数组 枚举 any null 和 undefined
+
+// 1) 联合类型
+// 默认你可以认为是并集
+
+let str: string | number; //当没有初始化的时候 只能调用两者类型中的共同方法
+
+// str.toString
+// str.valueOf
+
+str = 1; // 会根据赋值来推导后续的方法
+str.toFixed();
+
+str = "abc";
+str.toLowerCase();
+
+export {};

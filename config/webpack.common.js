@@ -244,12 +244,12 @@ module.exports = {
       chunks: ["main"], // 指定包含的代码块
       favicon: path.join(process.cwd(), "src/assets/img/yanyunchangfeng.png"),
     }),
-    new htmlWebpackPlugin({
-      template: path.join(process.cwd(), "src/index.html"),
-      filename: "modal.html",
-      chunks: ["modal"],
-      favicon: path.join(process.cwd(), "src/assets/img/yanyunchangfeng.png"),
-    }),
+    // new htmlWebpackPlugin({
+    //   template: path.join(process.cwd(), "src/index.html"),
+    //   filename: "modal.html",
+    //   chunks: ["modal"],
+    //   favicon: path.join(process.cwd(), "src/assets/img/yanyunchangfeng.png"),
+    // }),
     new webpack.DefinePlugin({
       AUTHOR: JSON.stringify("yanyunchangfeng"),
     }),

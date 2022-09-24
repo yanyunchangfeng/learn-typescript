@@ -14,8 +14,21 @@ const add = function (x: number, y: number, z: number = 10): number {
     return x + y;
   }
 };
-const add2: (x: number, y: number, z?: number) => number = add; //  =>表示返回值
-//这里我们没有定义add 的类型但是typscript 会自动的进行类型推断
+
+// 如果使用的是表达式 你给他定义了类型，你可以把一个可以兼容的函数赋予给他
+type Sum = (x: number, y: number, z?: number) => number;
+const add2: Sum = add; //  =>表示返回值
+//这里我们没有定义add 的类型但是typescript 会自动的进行类型推断
 
 // 再看这个例子会更容易理解
-let stri = "112"; //再赋值 的过程中推断为string类型
+let str = "112"; //再赋值 的过程中推断为string类型
+
+// 可选参数? 默认值 =
+
+//b? 表示b可以不传递
+
+// 剩余参数
+
+let sum = (...args: (number | string)[]) => {};
+sum(1, "2", 4, 3);
+export {};

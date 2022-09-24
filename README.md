@@ -3,10 +3,11 @@
 你好，我是[燕云长风](https://yanyunchangfeng.github.io)。
 寓意：结合李白著名的边塞诗《关山月》取【燕云长风】—— 长风几万里，吹度玉门关。
 
-## 安装
+## 用法
 
 ```
-  yarn or npm install
+  yarn or npm i
+  yarn start or npm start
 ```
 
 ## typescript 的讲解演示:
@@ -20,11 +21,6 @@
 7.  [类型和类型别名](src/app/lesson7/more.ts)
 8.  [模块和命名空间](src/app/lesson10/index.ts)
 
-## 我的个人博客
-
-- [燕云长风](https://yanyunchangfeng.github.io)
-
-
 ## 系列项目
 
 |  名称   | 描述  |
@@ -34,12 +30,17 @@
 | NiceBlogElectron  | 这是一个基于 Electron 的桌面端项目，把 NiceFish 用 Electron 打包成了一个桌面端运行的程序。这是由 ZTE 中兴通讯的前端道友提供的，我 fork 了一个，有几个 node 模块的版本号老要改，如果您正在研究如何利用 Electron 开发桌面端应用，请参考这个项目，https://github.com/damoqiongqiu/NiceBlogElectron|
 | OpenWMS  | 用来示范管理后台型系统的最佳实践，https://gitee.com/mumu-osc/OpenWMS-Frontend|
 | nicefish-springboot  | 用来示范前后端分离模式下，前端代码与后端服务的对接方式，已经完成了基线版本，并且在腾讯云上面做了实际的部署。代码仓库在这里： https://gitee.com/mumu-osc/nicefish-spring-boot ，腾讯云上的演示地址在这里： http://118.25.136.164 ，以此为基础，你可以继续开发出适合自己业务场景的代码。|
-| nicefish-springcloud  | 用来示范前后端分离模式下，前端代码与分布式后端服务的对接方式，即将完成，代码最近放出。|                                                                                                     
+| nicefish-springcloud  | 用来示范前后端分离模式下，前端代码与分布式后端服务的对接方式，即将完成，代码最近放出。|                                                               
 
-## 我的社交主页
+## 打包分析
+
+```
+   yarn build-analyzer or npm run build-analyzer  
+```    
+
+## 社交主页
 
 1. [燕云长风知乎](https://zhihu.com/people/hbxyxuxiaodong)
-2. [燕云长风知乎专栏](https://zhuanlan.zhihu.com/yanyunchangfeng)
 3. [燕云长风 github](https://github.com/yanyunchangfeng)
 4. [燕云长风 gitee](https://gitee.com/yanyunchangfeng)
 
