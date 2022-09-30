@@ -7,8 +7,12 @@
     "start": "cross-env NODE_ENV=development webpack serve",
     "start-analyzer": "cross-env NODE_ENV=development ANALYZE=1  webpack serve",
     "start-unused": "cross-env NODE_ENV=development UNUSED=1  webpack serve",
+    "start-multi-page": "cross-env NODE_ENV=development MULTIPLE=1  webpack serve",
+    "start-multi-page-unused": "cross-env NODE_ENV=development MULTIPLE=1 UNUSED=1  webpack serve",
     "build": "cross-env NODE_ENV=production webpack",
-    "build-analyzer": "cross-env NODE_ENV=production ANALYZE=1 webpack ",
+    "build-analyzer": "cross-env NODE_ENV=production ANALYZE=1  webpack",
+    "build-multi-page": "cross-env NODE_ENV=production MULTIPLE=1  webpack",
+    "build-multi-page-analyzer": "cross-env NODE_ENV=production MULTIPLE=1 ANALYZE=1  webpack",
     "generateAnalyzerFile": "cross-env NODE_ENV=production webpack --profile --json > stats.json",
     "analyzer": "webpack-bundle-analyzer --port 8888 ./docs/stats.json"
   },

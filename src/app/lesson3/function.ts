@@ -31,4 +31,21 @@ let str = "112"; //再赋值 的过程中推断为string类型
 
 let sum = (...args: (number | string)[]) => {};
 sum(1, "2", 4, 3);
+
+// 函数的重载
+// 希望把一个字符串 或者数字转换成一个数组
+// 123 => [1,2,3]
+// '123' => ['1','2','3']
+function toArray(value: string): string[];
+function toArray(value: number): number[];
+function toArray(value: number | string) {
+  if (typeof value === "string") {
+    return value.split("");
+  } else {
+    return value
+      .toString()
+      .split("")
+      .map((item) => parseInt(item));
+  }
+}
 export {};
