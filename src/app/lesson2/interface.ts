@@ -87,23 +87,61 @@ interface IVegetables {
 
 // console.log(tomato);
 
-interface IVegetables {
-  // 可选属性 仅读属性
-  taste: string;
-  color: string;
-  [xxx: string]: any; // 限制死的 其他的随意 任意接口
-  // readonly size?:number
-  type?: string;
+// interface IVegetables {
+//   // 可选属性 仅读属性
+//   taste: string;
+//   color: string;
+//   readonly [xxx: string]: any; // 限制死的 其他的随意 任意接口
+//   // readonly size?:number
+//   type?: string;
+// }
+// const tomato: IVegetables = {
+//   type: "fruit",
+//   color: "red",
+//   taste: "sour",
+//   1: 1,
+//   [Symbol(1)]: 1,
+// };
+// // 如果接口中 [xxx:index] 可索引接口
+// interface IArr {
+//   [key: number]: any;
+// }
+// let arr: IArr = [1, {}, "a", "v"];
+
+// -----------------------
+// 接口可以被类来实现
+interface Speakable {
+  // 接口中的内容都是抽象，没有具体的实现
+  name: string;
+  speak(): void; // 描述类的原型方法, 表示不关心方法的返回值
 }
-const tomato: IVegetables = {
-  type: "fruit",
-  color: "red",
-  taste: "sour",
-  1: 1,
-};
-// 如果接口中 [xxx:index] 可索引接口
-interface IArr {
-  [key: number]: any;
+
+interface ChineseSpeakable {
+  speakChinese(): void;
 }
-let arr: IArr = [1, {}, "a", "v"];
+class Speak implements Speakable, ChineseSpeakable {
+  speakChinese(): void {
+    throw new Error("Method not implemented.");
+  }
+  name!: string;
+  speak(): string {
+    return "speak";
+  }
+}
+
+//类 抽象类 不能被实例化 只有抽象类里面的内容 可以标记abstract 子类也必须要实现
+
+abstract class Animal {
+  // 抽象类中可以包含抽象方法和抽象属性
+  abstract name: string; // 可以没有实现
+  eat() {
+    // 有实现
+    console.log("eat");
+  }
+}
+// 父类一般都不会被实例化
+class Tom extends Animal {
+  name!: string;
+}
+
 export {};
