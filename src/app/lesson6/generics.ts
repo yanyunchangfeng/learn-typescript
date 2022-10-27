@@ -115,11 +115,11 @@ class Lion extends Animals {
   keeper!: LionKeeper;
 }
 
-function createInstance<T extends Animals>(c: new () => T): T {
-  return new c();
-}
-createInstance(Lion).keeper.nametgg;
-createInstance(Bee).keeper.hasMask;
+// function createInstance<T extends Animals>(c: new () => T): T {
+//   return new c();
+// }
+// createInstance(Lion).keeper.nametgg;
+// createInstance(Bee).keeper.hasMask;
 
 function identity<T>(arg: T): T {
   return arg;
@@ -135,3 +135,24 @@ interface GenericIdentityFnT<T> {
   (arg: T): T;
 }
 let mynewIentityT: GenericIdentityFnT<number> = identity;
+
+// ---------------
+// 泛型 就是当调用时传入具体类型 先用一个标识来占位
+class Person {
+  // 给这个person 增加了属性
+  // name: string
+  constructor(public name: string) {
+    this.name = name;
+  }
+}
+interface IClass<T> {
+  //表示是一个构造函数类型
+  new (name: string): T; // 可以用类当成类型
+}
+// {(name:string):any}   <==> new (name:string)=>any
+function createInstance<T>(clazz: IClass<T>, name: string) {
+  return new clazz(name);
+}
+let r = createInstance<Person>(Person, "张三");
+
+export {};

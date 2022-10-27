@@ -131,17 +131,37 @@ class Speak implements Speakable, ChineseSpeakable {
 
 //类 抽象类 不能被实例化 只有抽象类里面的内容 可以标记abstract 子类也必须要实现
 
-abstract class Animal {
-  // 抽象类中可以包含抽象方法和抽象属性
-  abstract name: string; // 可以没有实现
-  eat() {
-    // 有实现
-    console.log("eat");
+// abstract class Animal {
+//   // 抽象类中可以包含抽象方法和抽象属性
+//   abstract name: string; // 可以没有实现
+//   eat() {
+//     // 有实现
+//     console.log("eat");
+//   }
+// }
+// // 父类一般都不会被实例化
+// class Tom extends Animal {
+//   name!: string;
+// }
+
+// ----------------------
+// 可以描述对象 函数 类 类的实例
+
+class Person {
+  // 给这个person 增加了属性
+  // name: string
+  constructor(public name: string) {
+    this.name = name;
   }
 }
-// 父类一般都不会被实例化
-class Tom extends Animal {
-  name!: string;
+interface IClass {
+  //表示是一个构造函数类型
+  new (name: string): Person; // 可以用类当成类型
 }
+// {(name:string):any}   <==> new (name:string)=>any
+function createInstance(clazz: IClass, name: string) {
+  return new clazz(name);
+}
+let r = createInstance(Person, "张三");
 
 export {};
