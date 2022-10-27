@@ -17,7 +17,7 @@
 3.  [函数和类型推断](src/app/lesson3/function.ts)
 4.  [class](src/app/lesson4/class.ts)
 5.  [enum](src/app/lesson5/enums.ts)
-6.  [generics](src/app/lesson6/generics.ts)
+6.  [generics](src/app/lesson6/generics.ts) | [generics-new](src/app/lesson6/generics-new.ts)
 7.  [类型和类型别名](src/app/lesson7/more.ts)
 8.  [模块和命名空间](src/app/lesson10/index.ts)
 9.  [装饰器](src/app/lesson12/index.ts)
