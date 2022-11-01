@@ -5,6 +5,8 @@ import "src/app/lesson3/function";
 import "src/app/lesson4/class";
 import "src/app/lesson12";
 import "src/app/lesson6/generics-new";
+import "src/app/lesson3/type-assert";
+import "src/app/lesson3/type-protect";
 // d.ts 默认打包出来的代码 可以指定生成.d.ts 文件
 
 // 1. 默认先查找node_modules package.json types字段 有说明直接就找到了
