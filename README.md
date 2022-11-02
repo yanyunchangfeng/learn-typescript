@@ -21,6 +21,7 @@
 7.  [类型和类型别名](src/app/lesson7/more.ts)
 8.  [模块和命名空间](src/app/lesson10/index.ts)
 9.  [装饰器](src/app/lesson12/index.ts)
+10.  [交叉类型](src/app/lesson13/index.ts)
 
 ## 系列项目
 
