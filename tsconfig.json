@@ -7,6 +7,7 @@
     "module": "esnext",
     "strict": true,
     "target": "es2020",
+    "strictFunctionTypes": true,
     "sourceMap": true,
     "jsx": "react",
     "lib": [
