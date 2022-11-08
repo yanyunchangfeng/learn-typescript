@@ -22,7 +22,7 @@
 8.  [模块和命名空间](src/app/lesson10/index.ts)
 9.  [装饰器](src/app/lesson12/index.ts)
 10.  [交叉类型](src/app/lesson13/index.ts)
-11.  [ts中的兼容性](src/app/lesson14/index.ts)
+11.  [ts中的兼容性特性和问题](src/app/lesson14/index.ts)
 
 ## 系列项目
 

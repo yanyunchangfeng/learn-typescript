@@ -14,7 +14,7 @@ interface MyNum {
 }
 
 let str2: MyNum = "xxxx"; // 我要的你有就可以了
-let myNum!: MyNum; // 我要的时有toString方法的 你有就可以
+let myNum!: MyNum; // 我要的是有toString方法的 你有就可以
 
 // let str3: string = myNum;
 
@@ -51,8 +51,8 @@ function forEach<T>(arr: T[], cb: ForEachFn<T>) {
 forEach<number>([1, 2, 3, 4, 5], function (item) {
   console.log(item);
 });
-interface A {}
-interface B extends A {} // 继承只能用接口
+// interface A {}
+// interface B extends A {} // 继承只能用接口
 
 type a = string | number; // 联合类型只能用别名
 
@@ -65,6 +65,7 @@ let s2!: sum2;
 
 s1 = s2;
 
+// 安全考虑
 // 1. 基本类型 可以小范围的赋予给大范围的
 // 2. 接口类型可以把多的赋予给少的
 // 3. 函数的兼容性 （函数的参数 函数的返回值
@@ -86,11 +87,65 @@ class Grandson extends Child {
 
 type MyFn = (person: Child) => Child;
 
-function getFn(cb: MyFn) {}
+// 传父返子
+// ) 逆变 (函数的参数可以逆变， 可以传递父类和自己) 协变（函数的返回值 可以传递子类和自己）
+// function getFn(cb: MyFn) {}
 
-getFn((person: Parent) => new Child()); // 传爸爸
-getFn((person: Child) => new Child()); // 传自己
+// getFn((person: Parent) => new Child()); // 传爸爸
+// getFn((person: Child) => new Child()); // 传自己
 
-getFn((person: Parent) => new Grandson()); // 传爸爸
+// getFn((person: Parent) => new Grandson()); // 传爸爸
 // getFn((person: Grandson) => new Grandson()); // 严格模式下支持
+
+function getFn(cb: (person: string | number) => number | string) {}
+getFn((person: string | number | boolean) => "cf");
+
+// 类的兼容性 两个类一样就兼容
+
+class Person1 {
+  private name: string = "cf";
+}
+class Person2 {
+  name: string = "yy";
+  age: number = 1;
+}
+
+let p1!: Person1;
+let p2!: Person2; // 实例的特点，还是遵循正长的兼容性，比较的是实例长得什么样 => 接口的兼容性
+
+// p2 = p1;
+// p1 = p2;
+
+// 如果类中出现了 private protected 永远不兼容
+
+// 枚举类型永远不兼容
+
+enum E1 {}
+enum E2 {}
+
+let e1!: E1;
+let e2!: E2;
+
+// e1 = e2
+
+// 泛型 根据最终结果来确定是否 兼容 （返回的结果一样就兼容）
+
+interface A<T> {
+  [key: number]: T;
+}
+interface B<T> {
+  [key: number]: T;
+}
+type A1 = A<string>;
+type B1 = A<number>;
+let a1!: A1;
+let a2!: B1;
+// a1 = a2;
+
+// 基本类型
+// 接口兼容性
+// 函数的兼容性  参数 (可以少的给多的) 返回值 逆变和协变  传父返子
+// 类的兼容性 => 实例
+// 枚举不兼容
+// 泛型看最终结果是否兼容
 export {};
