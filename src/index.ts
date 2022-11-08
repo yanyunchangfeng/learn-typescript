@@ -9,6 +9,7 @@ import "src/app/lesson3/type-assert";
 import "src/app/lesson3/type-protect";
 import "src/app/lesson13";
 import "src/app/lesson14";
+import "src/app/lesson15";
 // d.ts 默认打包出来的代码 可以指定生成.d.ts 文件
 
 // 1. 默认先查找node_modules package.json types字段 有说明直接就找到了
