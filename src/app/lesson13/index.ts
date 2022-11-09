@@ -32,3 +32,5 @@ function mixin<T extends object, K extends object>(obj1: T, obj2: K): T & K {
 }
 // // ts是为了安全起见 类型兼容性
 let r = mixin({ a: 1 }, { b: 2 });
+
+export {};

@@ -18,14 +18,14 @@ interface Swimming {
 type MyType<T> = T extends Bird ? Sky : Swimming; // 三元表达式
 
 // 条件的分发 Sky | Swimming  只有"联合"类型会进行分发操作，最终取联合类型
-type x = MyType<Bird | Fish>;
+type x = MyType<Bird | Fish>; // 并集
 // 等价于u
 type m = MyType<Bird>;
 type n = MyType<Fish>;
 type u = m | n;
 
 //  o Sky
-type o = MyType<Bird & Fish>; // 因为交叉之后既有Bird又有Fish 所以满足Bird 数学中的并集
+type o = MyType<Bird & Fish>; // 因为交叉之后既有Bird又有Fish 所以满足Bird 交叉的部分 交集
 
 let obj = { name1: "xx", name2: "yy" };
 type xx = typeof obj;
