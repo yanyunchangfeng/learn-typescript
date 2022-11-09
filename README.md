@@ -21,10 +21,11 @@
 7.  [类型和类型别名](src/app/lesson7/more.ts)
 8.  [模块和命名空间](src/app/lesson10/index.ts)
 9.  [装饰器](src/app/lesson12/index.ts)
-10.  [交叉类型](src/app/lesson13/index.ts)
-11.  [ts中的兼容性特性和问题](src/app/lesson14/index.ts)
-12.  [条件类型](src/app/lesson15/index.ts)
-12.  [内置类型](src/app/lesson16/index.ts)
+10. [交叉类型](src/app/lesson13/index.ts)
+11. [ts中的兼容性特性和问题](src/app/lesson14/index.ts)
+12. [条件类型](src/app/lesson15/index.ts)
+13. [内置类型](src/app/lesson16/index.ts)
+16. [声明文件](src/app/lesson19/index.ts)
 
 ## 系列项目
 
