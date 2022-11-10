@@ -57,4 +57,40 @@ type Record<K extends keyof any, T> = {
 };
 let obj: Record<string | number, any> = { name: "cf", age: 29 };
 
+// map 方法
+// name,age = T
+// zf 11 = k
+// U 函数的返回值
+// 定义泛型
+type Fn<K, T, U> = (item: K, key: T) => U;
+function map<T extends keyof any, K, U>(
+  obj: Record<T, K>, // 对象参数
+  cb: Fn<K, T, U> // 回调函数参数
+): Record<T, U> {
+  //返回值类型
+  let result = {} as Record<T, U>;
+  for (let key in obj) {
+    result[key] = cb(obj[key], key);
+  }
+  return result;
+}
+// extends keyof any = string | number | symbol
+let r = map({ name: "cf", age: 29 }, (item, key) => {
+  return 123;
+});
+
+// Omit 忽略属性 我希望有三个属性都是必填的，但是我希望把某个属性改成选填的
+interface IPerson {
+  name: string;
+  age: number;
+  company: Company;
+}
+
+type MyExtract = Pick<IPerson, Exclude<keyof IPerson, "company">>; // 排除company
+type Omit<K, T extends keyof any> = Pick<K, Exclude<keyof K, T>>;
+type iperson = Omit<IPerson, "xxx">;
+
+// Exclude Extract Required Readonly Partial Omit
+// Record ReturnType instanceType ParametersType
+
 export {};

@@ -10,6 +10,8 @@ import "src/app/lesson3/type-protect";
 import "src/app/lesson13";
 import "src/app/lesson14";
 import "src/app/lesson15";
+import "src/app/lesson16";
+import "src/app/lesson17";
 import "src/app/lesson19";
 
 console.log(AUTHOR);
