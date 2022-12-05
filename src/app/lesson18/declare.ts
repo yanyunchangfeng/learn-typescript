@@ -31,7 +31,7 @@ declare namespace $ {
     function extend(): void;
   }
 }
-// import $ from "jquery"; //export default $
+// import $ from "jquery"; //export default $ 浏览器使用这一套
 // import $ = require("jquery"); // export = jquery(为了兼容commonjs 规范来实现的) node中可以使用这套api
 // commonjs 规范可以动态引入 es6静态的 可以支持tree shaking
 // const $ = require('jquery') // 标识没有声明文件

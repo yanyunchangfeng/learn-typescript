@@ -70,11 +70,10 @@ function greeting(): void {
 // void never
 // void 可以被赋值为null undefined never不能包含任何类型
 // 返回类型为void的函数能正常执行，但是返回never的函数无法正常执行
-// Symbol
-const s1 = Symbol("key");
+// Symbol symbol 表示独一无二的值
+const s1: symbol = Symbol("key");
 const s2 = Symbol("key");
-// console.log(s1 == s2)
-console.log(111);
+console.log(s1 == s2);
 
 // BigInt
 const max = BigInt(Number.MAX_SAFE_INTEGER);
@@ -168,4 +167,13 @@ str.toFixed();
 str = "abc";
 str.toLowerCase();
 
+// 对象类型 非原始数据类型 object
+const create = (obj: object) => {};
+
+// create(1);
+create({});
+create([]);
+create([]);
+create(function () {});
+// create(null);
 export {};

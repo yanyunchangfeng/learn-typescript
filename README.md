@@ -12,7 +12,7 @@
 
 ## typescript 的讲解演示:
 
-1.  [基础类型·any.联合类型.数组·元组](src/app/lesson1/basic-types.ts)
+1.  [基础类型·联合类型.数组·元组.枚举类型.对象类型.never.any.null.undefined](src/app/lesson1/basic-types.ts)
 2.  [interface 接口](src/app/lesson2/interface.ts)
 3.  [函数](src/app/lesson3/function.ts) | [类型推断](src/app/lesson3/type-assert.ts)   | [类型保护](src/app/lesson3/type-protect.ts)  
 4.  [class](src/app/lesson4/class.ts)
