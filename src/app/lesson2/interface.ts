@@ -164,4 +164,11 @@ function createInstance(clazz: IClass, name: string) {
 }
 let r = createInstance(Person, "张三");
 
+// 1.接口可以被扩展 extends
+// 2.接口可以描述形状 对象 函数 类 （? readonly）
+// 3.任意类型 可索引的
+// 4.接口和抽象类的区别
+
+// 描述形状的，没有具体的实现
+
 export {};

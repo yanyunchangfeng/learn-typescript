@@ -48,4 +48,5 @@ function toArray(value: number | string) {
       .map((item) => parseInt(item));
   }
 }
+// 函数的参数类型 返回值类型如何标明 函数的重载
 export {};

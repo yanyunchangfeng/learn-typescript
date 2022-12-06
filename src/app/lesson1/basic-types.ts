@@ -38,6 +38,9 @@ console.log(user, "user");
 
 // user = ['yanyun' , 44, true]
 
+// never类型 永远不是任何类的子类型 可以把never赋予给任何类型
+// 永远达不到的情况有三种 1)错误 2)死循环 3)类型判断时会出现never 4）完整性保护
+
 // never 代表不会出现的值
 // 1.作为不会返回的函数的返回值 类型
 
@@ -123,6 +126,8 @@ console.log(USER_ROLE.USER);
 let root: HTMLElement | null = document.getElementById("root");
 root!.style.color = "red";
 let element: HTMLElement | null = document.getElementById("root");
+
+//类型断言（不能断言成一个不存在的属性，尽量避免使用双重断言）
 // 非空断言
 element!.style.color = "green"; // 非空断言 表示一定有值 ts 语法
 element?.style?.color; // element && element.style && element.style.color
@@ -145,7 +150,7 @@ z = 1;
 z = undefined;
 z = null;
 
-// void 空类型只能接受nul 和undefined。函数的返回值
+// void 空类型只能接受nul 和undefined。一般用于函数的返回值
 // 函数默认的返回值是undefined,默认在严格模式下不能将null赋值给void
 let v: void;
 // v = null; // strict 模式下不能赋值为null
@@ -167,6 +172,11 @@ str.toFixed();
 str = "abc";
 str.toLowerCase();
 
+// 字面量类型
+type Direction = "up" | "down" | "left" | "right"; // 类型别名
+let direction: Direction;
+direction = "up";
+
 // 对象类型 非原始数据类型 object
 const create = (obj: object) => {};
 
@@ -176,4 +186,4 @@ create([]);
 create([]);
 create(function () {});
 // create(null);
-export {};
+export {}; //防止模块件的干扰

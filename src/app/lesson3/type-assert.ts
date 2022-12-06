@@ -33,4 +33,6 @@ type MySchool = typeof school;
 
 // 类型保护
 
+// typeof
+
 export {};

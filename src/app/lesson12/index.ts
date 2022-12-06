@@ -60,4 +60,5 @@ console.log(person.name);
 console.log(Person.age);
 person.say();
 
+// 装饰器只能围绕类来使用 本质上就是一个函数 将类中的属性、类中的方法、函数的参数进行修饰
 export {};

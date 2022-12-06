@@ -134,4 +134,7 @@ const getArea = (obj: ICircle | IRant | ISquare) => {
   }
 };
 getArea({ kind: "square", width: 100 });
+
+//typeof  instanceof in is语法
+// 可辨识类型
 export {};
