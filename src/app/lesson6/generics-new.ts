@@ -74,13 +74,18 @@ type T3 = DStr<boolean>;
 let str: T3 = { name: true };
 
 // 约束属性  keyof 表示取对象中的所有key属性
-const getVal = <T extends Object, K extends keyof T>(obj: T, key: K) => {};
+const getVal = <T extends Object, K extends keyof T>(obj: T, key: K) => {
+  return obj[key];
+};
 
-getVal({ a: 1, b: 2 }, "a");
+let a = getVal({ a: 1, b: 2 }, "a");
+console.log("a", a);
 
 type t1 = keyof any; // number string symbol
 type t2 = keyof string;
-
+type t3 = keyof number;
+type t4 = keyof (string | number); // toString valueOf
+type t5 = keyof (string & number); //number string symbol
 // 类中使用泛型
 class MyArray<T> {
   public arr: T[] = [];
