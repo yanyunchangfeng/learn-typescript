@@ -39,7 +39,11 @@ interface Test2 {
 type NewType<T> = T extends { name: string } ? Test2 : Test1;
 
 let person = { name: "cf", age: "29" };
-function getFn<T>(v: NewType<T>) {}
-getFn<typeof person>(person);
+let person1 = { age: "29" };
+function getFn<T>(v: NewType<T>) {
+  return v;
+}
+let a = getFn<typeof person>(person); // Test2
+let b = getFn<typeof person1>(person1); // Test1
 
 export {};

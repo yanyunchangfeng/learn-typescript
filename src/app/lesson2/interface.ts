@@ -18,15 +18,17 @@ let cf: Person = {
 
 // 计算fullname = firstName + lastName
 
-// 接口可以被实现 被继承 type 不能
-// type可以写联合类型
+// 接口可以被实现 被继承 type不能
+// type可以写联合类型 接口不能有或的关系
 
 // 1) 描述对象
 
 // 能用接口用接口，不能用换成type
-
+// 希望只是起个别名 没有扩展功能 只是基于某个类型去扩展一下 生成新的类型 那么就用type
+// 如果我们希望对类型进行扩展或者合并 那么就用interface
 // interface IFullName {
 //   firstName: string;
+//   firstName: '徐'|'王';// 表示的是字面量类型 而非具体实现
 //   lastName: string;
 // }
 // // interface 可以描述 （属性 方法 类）
@@ -165,9 +167,9 @@ function createInstance(clazz: IClass, name: string) {
 let r = createInstance(Person, "张三");
 
 // 1.接口可以被扩展 extends
-// 2.接口可以描述形状 对象 函数 类 （? readonly）
+// 2.接口可以描述形状 对象、函数、类（? readonly）
 // 3.任意类型 可索引的
-// 4.接口和抽象类的区别
+// 4.接口和抽象类的区别 抽象类有实现接口没有实现
 
 // 描述形状的，没有具体的实现
 
