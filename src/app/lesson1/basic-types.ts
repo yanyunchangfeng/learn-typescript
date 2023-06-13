@@ -12,7 +12,7 @@ let notSure: any = 4;
 notSure = "maybe it is a string";
 notSure = true;
 notSure.myName;
-// notSure.getName();
+notSure.getName();
 
 //联合类型 可以看作并集 既能使用数字 又能使用字符串
 let numberOrString: number | string;
@@ -24,8 +24,8 @@ let arrOfNumbers2: Array<number | string> = [1, 9, 9, 3, "yanger"];
 arrOfNumbers.push(9);
 
 function test() {
-  console.log(arguments);
-  // let arr:any []  = arguments;  Type 'IArguments' is missing the following properties from type 'any[]':
+  let arg: IArguments = arguments;
+  console.log(arg);
 }
 //元组类型tuple 数量和类型已知的数组  表示长度和个数都（内容存放类型）都限制好了
 
@@ -38,8 +38,10 @@ console.log(user, "user");
 
 // user = ['yanyun' , 44, true]
 
-// never类型 永远不是任何类的子类型 可以把never赋予给任何类型
-// 永远达不到的情况有三种 1)错误 2)死循环 3)类型判断时会出现never 4）完整性保护
+// never类型表示永远不的意思 是任何类的子类型 可以把never赋予给任何类型
+let never!: never;
+firstName = never;
+// 永远达不到的情况有三种 1) 错误 2) 死循环 3) 类型判断时会出现never 4）完整性保护
 
 // never 代表不会出现的值
 // 1.作为不会返回的函数的返回值 类型
@@ -48,6 +50,7 @@ function error(message: string): never {
   throw new Error("报错了");
   console.log("ok");
 }
+
 function loop(): never {
   while (true) {}
   console.log("ok");

@@ -112,7 +112,8 @@ type Tail<T extends string> = T extends `${string}.${infer Rest}`
   : never;
 
 type a = Head<"company.age">; // company
-type b = Tail<Extract<"company.age", `${"company"}.${string}`>>; // age
+type b = Extract<"company.age", `${"company"}.${string}`>; // company.age
+type e = Tail<Extract<"company.age", `${"company"}.${string}`>>; // age
 type DeepPick<T, K extends string> = T extends object
   ? {
       [P in Head<K> & keyof T]: T[P] extends readonly unknown[]
@@ -185,10 +186,14 @@ interface IPerson {
   age: number;
   company: Company;
 }
+type iPerson = Omit<IPerson, "company"> & { company?: Company };
+let p: iPerson = {
+  name: "cf",
+  age: 11,
+};
 
 type MyExtract = Pick<IPerson, Exclude<keyof IPerson, "company">>; // 排除company
 type Omit<K, T extends keyof any> = Pick<K, Exclude<keyof K, T>>;
-type iPerson = Omit<IPerson, "xxx">;
 
 // Exclude Extract Required Readonly Partial Omit
 // Record ReturnType instanceType ParametersType
