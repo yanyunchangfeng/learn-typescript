@@ -160,7 +160,9 @@ interface IClass {
   //表示是一个构造函数类型
   new (name: string): Person; // 可以用类当成类型
 }
-// {(name:string):any}   <==> new (name:string)=>any
+
+// typeof Person <==> new ()=> Person
+// {new (name:strings):any}   <==> new (name:string)=>any
 function createInstance(clazz: IClass, name: string) {
   return new clazz(name);
 }

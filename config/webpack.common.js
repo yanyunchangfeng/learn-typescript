@@ -147,31 +147,31 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         type: "asset/resource",
-        use: [
-          {
-            loader: "image-webpack-loader",
-            options: {
-              // jpeg 压缩配置
-              mozjpeg: {
-                quality: 80,
-              },
-              optipng: {
-                enabled: false,
-              },
-              pngquant: {
-                quality: [0.65, 0.9],
-                speed: 4,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              webp: {
-                quality: 75,
-              },
-              disable: isDev ? true : false,
-            },
-          },
-        ],
+        // use: [
+        //   {
+        //     loader: "image-webpack-loader",
+        //     options: {
+        //       // jpeg 压缩配置
+        //       mozjpeg: {
+        //         quality: 80,
+        //       },
+        //       optipng: {
+        //         enabled: false,
+        //       },
+        //       pngquant: {
+        //         quality: [0.65, 0.9],
+        //         speed: 4,
+        //       },
+        //       gifsicle: {
+        //         interlaced: false,
+        //       },
+        //       webp: {
+        //         quality: 75,
+        //       },
+        //       disable: isDev ? true : false,
+        //     },
+        //   },
+        // ],// 如需优化压缩图片资源请安装此loader
         // 资源模块 对标file-loader
       },
       {
