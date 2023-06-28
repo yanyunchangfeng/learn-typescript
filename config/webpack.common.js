@@ -12,11 +12,11 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const webpackBar = require("webpackbar");
-const { NODE_ENV, ANALYZE, UNUSED, MULTIPLE } = process.env;
-const isDev = NODE_ENV === "development";
-isAnalyzerMode = ANALYZE === "1";
-isUnusedMode = UNUSED === "1";
-isMultiplePage = MULTIPLE === "1";
+const { NODE_ENV, ANALYZE, UNUSED, MULTIPLE, UMD_LIBRARY } = process.env;
+const isDev = NODE_ENV === "development",
+  isAnalyzerMode = ANALYZE === "1",
+  isUnusedMode = UNUSED === "1",
+  isMultiplePage = MULTIPLE === "1";
 const noop = () => {};
 // module.exports = smw.wrap({ //需要包裹一层配置对象
 module.exports = {
@@ -34,7 +34,7 @@ module.exports = {
   devtool: isDev ? "source-map" : false, //用于配置产物 Sourcemap 生成规则
   output: {
     // 配置产物输出路径、名称等；
-    path: path.join(process.cwd(), "docs"),
+    path: path.join(process.cwd(), "dist"),
     filename: "[name].[contenthash].js", //入口代码块文件名的生成规则
     chunkFilename: "[name].[contenthash].js", //非入口模块的生成规则
     clean: true,
@@ -243,12 +243,17 @@ module.exports = {
           generateStatsFile: true, // 是否生成stats.json文件
         })
       : noop,
-    new htmlWebpackPlugin({
-      template: path.join(process.cwd(), "src/index.html"),
-      filename: "index.html",
-      chunks: ["main"], // 指定包含的代码块
-      favicon: path.join(process.cwd(), "src/assets/img/yanyunchangfeng.png"),
-    }),
+    !UMD_LIBRARY
+      ? new htmlWebpackPlugin({
+          template: path.join(process.cwd(), "src/index.html"),
+          filename: "index.html",
+          chunks: ["main"], // 指定包含的代码块
+          favicon: path.join(
+            process.cwd(),
+            "src/assets/img/yanyunchangfeng.png"
+          ),
+        })
+      : noop,
     isMultiplePage
       ? new htmlWebpackPlugin({
           template: path.join(process.cwd(), "src/index.html"),
@@ -267,17 +272,19 @@ module.exports = {
     // .日志太多太少都不美观
     // .可以修改stats
     !isDev
-      ? new CopyPlugin({
-          patterns: [
-            {
-              from: path.resolve(process.cwd(), "src", "assets"),
-              to: path.resolve(process.cwd(), "docs"),
+      ? !UMD_LIBRARY
+        ? new CopyPlugin({
+            patterns: [
+              {
+                from: path.resolve(process.cwd(), "src", "assets"),
+                to: path.resolve(process.cwd(), "dist"),
+              },
+            ],
+            options: {
+              concurrency: 100,
             },
-          ],
-          options: {
-            concurrency: 100,
-          },
-        })
+          })
+        : noop
       : noop,
     new webpack.IgnorePlugin({
       resourceRegExp: /^\.\/locale$/,

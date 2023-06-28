@@ -1,2 +1,0 @@
-/*! For license information please see main.039ede73be8bb070e5e2.js.LICENSE.txt */
-(()=>{"use strict";var e={521:(e,n)=>{Object.defineProperty(n,"__esModule",{value:!0}),function(e,n){let r={};for(let n in e)r[n]=123}({name:"cf",age:29})}},n={};(function r(o){var t=n[o];if(void 0!==t)return t.exports;var a=n[o]={exports:{}};return e[o](a,a.exports,r),a.exports})(521),console.log("yanyunchangfeng",window)})();

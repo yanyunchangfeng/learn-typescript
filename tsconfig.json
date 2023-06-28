@@ -4,17 +4,16 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "allowJs": true,
-    "module": "CommonJS",
+    "module": "esnext",
     "strict": true,
     "target": "es2020",
-    "strictFunctionTypes": true,
     "sourceMap": true,
     "jsx": "react",
     "lib": [
       "ESNext",
       "DOM" //console方法内置于DOM
     ],
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "src/*": ["src/*"],
       "*": ["src/types/*"] // 当我们引入文件的时候默认会去types下找声明文件 不是d.ts的文件是ts文件
@@ -25,6 +24,6 @@
   },
   "include": [
     "src/**/*", // 两个*表示任意目录 一个*表示任意文件
-    "src/typings/**/*"
+    "test/**/*"
   ]
 }

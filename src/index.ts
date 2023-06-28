@@ -13,5 +13,3 @@
 import "src/app/lesson16";
 // import "src/app/lesson17";
 // import "src/app/lesson19";
-
-console.log(AUTHOR);
