@@ -1,3 +1,3 @@
-namespace Box{
-    export class Book1{}
+namespace Box {
+  export class Book1 {}
 }

@@ -27,7 +27,7 @@ type u = m | n;
 //  o Sky
 type o = MyType<Bird & Fish>; // 因为交叉之后既有Bird又有Fish 所以满足Bird 交叉的部分 交集
 
-let obj = { name1: "xx", name2: "yy" };
+let obj = { name1: 'xx', name2: 'yy' };
 type xx = typeof obj;
 type x1 = MyType<xx>;
 
@@ -53,7 +53,7 @@ type Exclude<T, U> = T extends U ? never : T;
 type xxx = string | number | never; // xxx string | number
 
 type MyExclude = Exclude<string | number | boolean, boolean>;
-let myExclude: MyExclude = "sss";
+let myExclude: MyExclude = 'sss';
 myExclude = 333;
 // myExclude = false;  值只能是string 或者 number
 
@@ -71,7 +71,7 @@ type NonNullable<T> = T extends null | undefined ? never : T;
 
 type MyNonNullable = NonNullable<string | number | null | boolean | undefined>;
 
-let a: MyNonNullable = "sss";
+let a: MyNonNullable = 'sss';
 a = true;
 a = 1;
 // a = undefined;
@@ -80,45 +80,35 @@ a = 1;
 // 1. 查看函数返回值的类型
 
 function getUser(x: string, y: string) {
-  return { name: "cf", age: 29 };
+  return { name: 'cf', age: 29 };
 }
 // 不执行函数 取类型 infer 写在哪里就推导哪里的类型
-type ReturnType<T extends (...args: any[]) => any> = T extends (
-  ...args: any[]
-) => infer R
-  ? R
-  : never;
+type ReturnType<T extends (...args: any[]) => any> = T extends (...args: any[]) => infer R ? R : never;
 
 type t = typeof getUser;
 type MyReturnType = ReturnType<t>;
 const user: MyReturnType = {
-  name: "cf",
-  age: 29,
+  name: 'cf',
+  age: 29
 };
 
 //                   我传入的类型需要是一个函数             如果是函数  将参数类型推导出来塞入到变量P中  返回P
-type Parameters<T extends (...args: any[]) => any> = T extends (
-  ...args: infer P
-) => any
-  ? P
-  : never;
+type Parameters<T extends (...args: any[]) => any> = T extends (...args: infer P) => any ? P : never;
 
 type MyParamsType = Parameters<t>;
-let myParamsType: MyParamsType = ["string", "string"];
+let myParamsType: MyParamsType = ['string', 'string'];
 // 取构造函数类型
 class Animal {
   constructor(name: string, age: number) {}
 }
 
 let A: typeof Animal = Animal;
-type ConstructorParameters<T extends { new (...args: any[]): any }> =
-  T extends { new (...args: infer C): any } ? C : any;
+type ConstructorParameters<T extends { new (...args: any[]): any }> = T extends { new (...args: infer C): any }
+  ? C
+  : any;
 
 type MyAnimalConstructorParameters = ConstructorParameters<typeof Animal>;
-let myAnimalConstructorParameters: MyAnimalConstructorParameters = [
-  "string",
-  111,
-];
+let myAnimalConstructorParameters: MyAnimalConstructorParameters = ['string', 111];
 // 取实例类型
 type InstanceType<T extends { new (...args: any[]): any }> = T extends {
   new (...args: any[]): infer R;
@@ -126,6 +116,6 @@ type InstanceType<T extends { new (...args: any[]): any }> = T extends {
   ? R
   : any;
 type MyAnimalInstance = InstanceType<typeof Animal>; // Animal
-let myAnimalInstance: MyAnimalInstance = new Animal("string", 111);
+let myAnimalInstance: MyAnimalInstance = new Animal('string', 111);
 // Animal 可以描述实例的类型
 export {};

@@ -7,7 +7,7 @@ class Animal {
     return `${this.name} is running`;
   }
 }
-const snake = new Animal("lily");
+const snake = new Animal('lily');
 // console.log(snake.run())
 // snake.name = 'luck'
 // console.log(snake.name)
@@ -17,17 +17,17 @@ class Dog extends Animal {
     return `${this.name} is barking`;
   }
 }
-const xiaobao = new Dog("xiaoao");
+const xiaobao = new Dog('xiaoao');
 
 class Cat extends Animal {
   constructor(name: string) {
     super(name);
   }
   run() {
-    return "Meow," + super.run();
+    return 'Meow,' + super.run();
   }
 }
-const maomao = new Cat("maomao");
+const maomao = new Cat('maomao');
 
 console.log(maomao.run());
 // 接口抽象类的属性和方法 有的时候 很多不同的类会有一些相同的特性 使用子类继承父类的方法很难完成 这时候
@@ -87,17 +87,17 @@ class Animals {
     this.age = age;
   }
   // 静态属性和静态方法 通过类来调用的就是静态的（是可以被继承的）
-  static type = "动物";
+  static type = '动物';
   static getName(): string {
-    return "动物类";
+    return '动物类';
   }
   say(): void {
-    console.log("say");
+    console.log('say');
   }
 }
 
 class CatM extends Animals {
-  address = "";
+  address = '';
   constructor(name: string, age: number, address: string) {
     super(name, age); //Animals.call
     this.address = address;
@@ -106,14 +106,14 @@ class CatM extends Animals {
   static getName(): string {
     // 子类重写父类的方法
     console.log(super.getName()); //静态方法中的super指代的是父类
-    return "猫";
+    return '猫';
   }
   say(): void {
     // 原型中的super指代的是 父类的原型
     super.say(); // Animal.prototype
-    console.log("cat say");
+    console.log('cat say');
   }
-  private _eat: string = "";
+  private _eat: string = '';
   // 属性访问器,来访问私有属性
   get eat() {
     // Object.defineProperty
@@ -124,9 +124,9 @@ class CatM extends Animals {
     this._eat = newValue;
   }
 }
-let catM = new CatM("缅因猫", 10, "杭州");
+let catM = new CatM('缅因猫', 10, '杭州');
 console.log(CatM.getName());
-catM.eat = "hello";
+catM.eat = 'hello';
 console.log(catM.eat);
 
 // 原型 实例 静态 super 属性访问器

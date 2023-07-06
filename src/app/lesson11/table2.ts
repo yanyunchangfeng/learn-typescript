@@ -1,3 +1,3 @@
-export module Box{
-    export class Book1{}
+export module Box {
+  export class Book1 {}
 }

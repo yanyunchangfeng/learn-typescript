@@ -1,1 +1,1 @@
-export class Book1{}
+export class Book1 {}

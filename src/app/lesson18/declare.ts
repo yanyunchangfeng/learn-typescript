@@ -12,7 +12,7 @@ A.a;
 
 declare enum Seasons {
   Spring,
-  Summer,
+  Summer
 }
 // ---------这些东西就是给你当提示用的 不需要实现--------------
 console.log(Seasons.Spring); //仅仅是一个提示作用

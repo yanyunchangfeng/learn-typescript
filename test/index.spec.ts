@@ -1,13 +1,13 @@
 const myBeverage = {
   delicious: true,
-  sour: false,
+  sour: false
 };
 describe.each([myBeverage])(`test %o correctly`, (item) => {
-  test("is delicious", () => {
+  test('is delicious', () => {
     expect(item.delicious).toBeTruthy();
   });
 
-  test("is not sour", () => {
+  test('is not sour', () => {
     expect(item.sour).toBeFalsy();
   });
 });

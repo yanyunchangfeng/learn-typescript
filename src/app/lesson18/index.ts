@@ -2,7 +2,7 @@
 
 // unknown 类型 可以被任何类型赋值
 let unknown: any;
-unknown = { name: "zf" };
+unknown = { name: 'zf' };
 
 //unknown 不能通过属性取值 不能调用方法
 // ！ 是非空校验
@@ -38,8 +38,8 @@ interface Test2 {
 
 type NewType<T> = T extends { name: string } ? Test2 : Test1;
 
-let person = { name: "cf", age: "29" };
-let person1 = { age: "29" };
+let person = { name: 'cf', age: '29' };
+let person1 = { age: '29' };
 function getFn<T>(v: NewType<T>) {
   return v;
 }

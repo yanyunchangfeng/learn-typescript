@@ -13,7 +13,7 @@ interface MyNum {
   toString(): string;
 }
 
-let str2: MyNum = "xxxx"; // 我要的你有就可以了
+let str2: MyNum = 'xxxx'; // 我要的你有就可以了
 let myNum!: MyNum; // 我要的是有toString方法的 你有就可以
 
 // let str3: string = myNum;
@@ -75,14 +75,14 @@ s1 = s2;
 // 协变（函数的返回值 可以传递儿子自己）与逆变（函数的参数可以逆变 可以传递父亲和自己）
 // 参数是双向协变 就是可以传儿子 也可以传父亲 (默认在严格模式下不支持)
 class Parent {
-  address: string = "杭州翠苑";
+  address: string = '杭州翠苑';
 }
 class Child extends Parent {
   money: number = 1000;
 }
 class Grandson extends Child {
   // 没写constructor 默认调了super
-  name: string = "CF";
+  name: string = 'CF';
 }
 
 type MyFn = (person: Child) => Child;
@@ -98,15 +98,15 @@ type MyFn = (person: Child) => Child;
 // getFn((person: Grandson) => new Grandson()); // 严格模式下支持
 
 function getFn(cb: (person: string | number) => number | string) {}
-getFn((person: string | number | boolean) => "cf");
+getFn((person: string | number | boolean) => 'cf');
 
 // 类的兼容性 两个类一样就兼容
 
 class Person1 {
-  private name: string = "cf";
+  private name: string = 'cf';
 }
 class Person2 {
-  name: string = "yy";
+  name: string = 'yy';
   age: number = 1;
 }
 

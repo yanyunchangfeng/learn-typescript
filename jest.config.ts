@@ -1,24 +1,24 @@
-import type { Config } from "jest";
-import { defaults as tsjPreset } from "ts-jest/presets";
+import type { Config } from 'jest';
+import { defaults as tsjPreset } from 'ts-jest/presets';
 
 const config: Config = {
-  testEnvironment: "node",
+  testEnvironment: 'node',
   collectCoverage: true,
   transform: {
     ...tsjPreset.transform,
-    "/test/.*\\.spec\\.tsx?$": [
-      "ts-jest",
+    '/test/.*\\.spec\\.tsx?$': [
+      'ts-jest',
       {
-        tsconfig: { emitDecoratorMetadata: true, experimentalDecorators: true },
-      },
-    ],
+        tsconfig: { emitDecoratorMetadata: true, experimentalDecorators: true }
+      }
+    ]
   },
   moduleNameMapper: {
-    "^src/(.*)$": "<rootDir>/src/$1",
+    '^src/(.*)$': '<rootDir>/src/$1'
   },
-  coverageReporters: ["lcov", "html"],
-  testRegex: "/test/.*\\.spec\\.tsx?$",
-  collectCoverageFrom: ["src/**/*"],
+  coverageReporters: ['lcov', 'html'],
+  testRegex: '/test/.*\\.spec\\.tsx?$',
+  collectCoverageFrom: ['src/**/*']
 };
 
 export default config;

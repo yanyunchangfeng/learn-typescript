@@ -3,7 +3,7 @@
 // js typeof instanceof in
 
 function getVal(val: string | number) {
-  if (typeof val === "string") {
+  if (typeof val === 'string') {
     val.padStart;
   } else {
     val.toFixed;
@@ -45,16 +45,16 @@ if (instance instanceof Dog) {
 /// ----------------------ts 特有 可辨识的类型
 
 interface IButton1 {
-  class: "warning"; // 字面量类型
+  class: 'warning'; // 字面量类型
   click: string;
 }
 interface IButton2 {
-  class: "success";
+  class: 'success';
   mousemove: string;
 }
 
 function getButton(val: IButton1 | IButton2) {
-  if (val.class === "warning") {
+  if (val.class === 'warning') {
     // warning 是具体的字符串
     val.click;
   } else {
@@ -74,7 +74,7 @@ interface Bird {
 }
 function isFish(animal: Fish | Bird): animal is Fish {
   // 为了识别类型而已 ts语法
-  return "swimming" in animal;
+  return 'swimming' in animal;
 }
 function isString(val: unknown): val is string {
   return typeof val == `string`;
@@ -105,35 +105,35 @@ getNum();
 // 对代码的完整性进行保护 反推代码 never
 
 interface ICircle {
-  kind: "circle";
+  kind: 'circle';
   r: number;
 }
 interface IRant {
-  kind: "rant";
+  kind: 'rant';
   width: number;
   height: number;
 }
 interface ISquare {
-  kind: "square";
+  kind: 'square';
   width: number;
 }
 
 const assert = (obj: never) => {
-  throw new Error("出问题了");
+  throw new Error('出问题了');
 };
 const getArea = (obj: ICircle | IRant | ISquare) => {
   switch (obj.kind) {
-    case "rant":
+    case 'rant':
       return obj.width * obj.height;
-    case "square":
+    case 'square':
       break;
-    case "circle":
+    case 'circle':
       break;
     default:
       return assert(obj); // 为了实现完整性保护
   }
 };
-getArea({ kind: "square", width: 100 });
+getArea({ kind: 'square', width: 100 });
 
 //typeof  instanceof in is语法
 // 可辨识类型

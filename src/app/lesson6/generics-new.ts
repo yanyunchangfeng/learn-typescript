@@ -11,7 +11,7 @@ function createArray<T>(times: number, val: T) {
   return result;
 }
 
-let r = createArray<string>(3, "ABC"); // 不传入类型 ts 也会自动推导类型
+let r = createArray<string>(3, 'ABC'); // 不传入类型 ts 也会自动推导类型
 
 // 泛型可以使用多个
 // 元组 [ string ,number] => [number,string]
@@ -61,7 +61,7 @@ function getType<T extends WithLen>(obj: T) {
   obj.length;
 }
 getType([]);
-getType("abc");
+getType('abc');
 
 // 默认泛型 不传递 默认给予类型
 interface DStr<T = string> {
@@ -78,8 +78,8 @@ const getVal = <T extends Object, K extends keyof T>(obj: T, key: K) => {
   return obj[key];
 };
 
-let a = getVal({ a: 1, b: 2 }, "a");
-console.log("a", a);
+let a = getVal({ a: 1, b: 2 }, 'a');
+console.log('a', a);
 
 type t1 = keyof any; // number string symbol
 type t2 = keyof string;

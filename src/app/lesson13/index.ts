@@ -11,8 +11,8 @@ type Person3 = Person1 & Person2;
 
 let person: Person3 = {
   // 交叉的部分
-  handsome: "帅",
-  high: "高",
+  handsome: '帅',
+  high: '高'
 };
 
 interface Person4 {
@@ -22,7 +22,7 @@ interface Person5 {
   name: number;
 }
 function fn(): never {
-  throw new Error("");
+  throw new Error('');
 }
 type Person6 = Person4 & Person5;
 let person6: Person6 = { name: fn() };

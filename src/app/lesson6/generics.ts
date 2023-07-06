@@ -10,7 +10,7 @@ function echo<T>(arg: T): T {
 }
 
 // const str:string = 'str';
-const result = echo("str");
+const result = echo('str');
 // const result:string = echo(true) 报错
 // const result = echo(true)
 // const result = echo(123)
@@ -18,7 +18,7 @@ const result = echo("str");
 function swap<T, U>(tuple: [T, U]): [U, T] {
   return [tuple[1], tuple[0]];
 }
-const result2 = swap(["string", 123]);
+const result2 = swap(['string', 123]);
 result2[1].charCodeAt(0);
 // 泛型就像一个占位符 或者一个变量 在使用的时候我们可以把定义的类型像参数一样传入 ，然后它可以原封不变的给我们输出
 
@@ -36,7 +36,7 @@ function echoWithLength<T extends IWithLength>(arg: T): T {
   console.log(arg.length);
   return arg;
 }
-const str = echoWithLength("str");
+const str = echoWithLength('str');
 const obj = echoWithLength({ length: 10, with: 10 });
 const arr2 = echoWithLength([1, 2, 3]);
 // const number = echoWithLength(12) 报错
@@ -57,7 +57,7 @@ class Queue<T> {
 const queue = new Queue<number>();
 queue.push(1);
 const queue2 = new Queue<string>();
-queue2.push("str");
+queue2.push('str');
 console.log(queue2.pop().length);
 
 interface KeyPair<T, U> {
@@ -65,8 +65,8 @@ interface KeyPair<T, U> {
   value: U;
 }
 
-let kp1: KeyPair<number, string> = { key: 123, value: "str" };
-let kp2: KeyPair<string, number> = { key: "test", value: 123 };
+let kp1: KeyPair<number, string> = { key: 123, value: 'str' };
+let kp2: KeyPair<string, number> = { key: 'test', value: 123 };
 
 let arr: number[] = [1, 2, 3];
 
@@ -91,7 +91,7 @@ function getProperty<T, K extends keyof T>(obj: T, key: K) {
   return obj[key];
 }
 let x = { a: 1, b: 2, c: 3, d: 4 };
-getProperty(x, "d");
+getProperty(x, 'd');
 // getProperty(x,'m')  //报错
 
 function create<T>(c: { new (): T }): T {
@@ -102,7 +102,7 @@ class BeeKeeper {
   hasMask: boolean = false;
 }
 class LionKeeper {
-  nametgg: string = "";
+  nametgg: string = '';
 }
 class Animals {
   numLengs: number = 3;
@@ -153,6 +153,6 @@ interface IClass<T> {
 function createInstance<T>(clazz: IClass<T>, name: string) {
   return new clazz(name);
 }
-let r = createInstance<Person>(Person, "张三");
+let r = createInstance<Person>(Person, '张三');
 
 export {};

@@ -1,7 +1,7 @@
 let isDone: boolean = true;
 let age: number = 22;
 let binaryNumber: number = 0b1111;
-let firstName: string = "changfeng";
+let firstName: string = 'changfeng';
 let message: string = `hello ${firstName} age is ${age}`;
 let u: undefined = undefined;
 let n: null = null;
@@ -9,7 +9,7 @@ let n: null = null;
 // undefined 和null 是所有类型的子类型
 
 let notSure: any = 4;
-notSure = "maybe it is a string";
+notSure = 'maybe it is a string';
 notSure = true;
 notSure.myName;
 notSure.getName();
@@ -17,10 +17,10 @@ notSure.getName();
 //联合类型 可以看作并集 既能使用数字 又能使用字符串
 let numberOrString: number | string;
 numberOrString = 123;
-numberOrString = "yanyun";
+numberOrString = 'yanyun';
 
-let arrOfNumbers: (number | string)[] = [1, 9, 9, 3, "333"];
-let arrOfNumbers2: Array<number | string> = [1, 9, 9, 3, "yanger"];
+let arrOfNumbers: (number | string)[] = [1, 9, 9, 3, '333'];
+let arrOfNumbers2: Array<number | string> = [1, 9, 9, 3, 'yanger'];
 arrOfNumbers.push(9);
 
 function test() {
@@ -29,12 +29,12 @@ function test() {
 }
 //元组类型tuple 数量和类型已知的数组  表示长度和个数都（内容存放类型）都限制好了
 
-let user: [string, number] = ["changfeng", 28];
+let user: [string, number] = ['changfeng', 28];
 //可以向元组中添加内容，不能通过索引添加属性
 //只能放入元组汇总已经声明过的类型
-user[0] = "yanyunchangfeng";
-user.push("yanger");
-console.log(user, "user");
+user[0] = 'yanyunchangfeng';
+user.push('yanger');
+console.log(user, 'user');
 
 // user = ['yanyun' , 44, true]
 
@@ -47,18 +47,18 @@ firstName = never;
 // 1.作为不会返回的函数的返回值 类型
 
 function error(message: string): never {
-  throw new Error("报错了");
-  console.log("ok");
+  throw new Error('报错了');
+  console.log('ok');
 }
 
 function loop(): never {
   while (true) {}
-  console.log("ok");
+  console.log('ok');
 }
 function fn(x: number | string) {
-  if (typeof x === "number") {
+  if (typeof x === 'number') {
     console.log(x);
-  } else if (typeof x === "string") {
+  } else if (typeof x === 'string') {
     console.log(x);
   } else {
     console.log(x); //never
@@ -77,8 +77,8 @@ function greeting(): void {
 // void 可以被赋值为null undefined never不能包含任何类型
 // 返回类型为void的函数能正常执行，但是返回never的函数无法正常执行
 // Symbol symbol 表示独一无二的值
-const s1: symbol = Symbol("key");
-const s2 = Symbol("key");
+const s1: symbol = Symbol('key');
+const s2 = Symbol('key');
 console.log(s1 == s2);
 
 // BigInt
@@ -99,7 +99,7 @@ let bar: bigint;
 //  普通枚举
 enum Gender {
   GIRL,
-  BOY,
+  BOY
 }
 // 默认可以正向取出 也可以反举
 console.log(Gender.BOY, Gender[1]); // 1 BOY
@@ -108,7 +108,7 @@ console.log(Gender.GIRL, Gender[0]); // 0 GIRL
 const enum Colors { // 语义化
   RED,
   YELLOW,
-  BLUE,
+  BLUE
 }
 
 console.log(Colors.BLUE);
@@ -117,27 +117,27 @@ let myColor = [Colors.RED, Colors.YELLOW, Colors.BLUE]; // [0,1,2]
 // 异构枚举 可以在枚举中放不同的类型
 
 enum USER_ROLE {
-  USER = "a",
+  USER = 'a',
   ADMIN = 1,
-  MANAGER,
+  MANAGER
 }
 console.log(USER_ROLE.USER);
 
 // 任意类型
 // any
 //如果变量定义为any类型，就跟JS差不多，不进行类型检查
-let root: HTMLElement | null = document.getElementById("root");
-root!.style.color = "red";
-let element: HTMLElement | null = document.getElementById("root");
+let root: HTMLElement | null = document.getElementById('root');
+root!.style.color = 'red';
+let element: HTMLElement | null = document.getElementById('root');
 
 //类型断言（不能断言成一个不存在的属性，尽量避免使用双重断言）
 // 非空断言
-element!.style.color = "green"; // 非空断言 表示一定有值 ts 语法
+element!.style.color = 'green'; // 非空断言 表示一定有值 ts 语法
 element?.style?.color; // element && element.style && element.style.color
 
 // 可以做断言操作 也能解决这个问题
-(<HTMLElement>element).style.color = "red"; // 这个和jsx语法有冲突 尽量不采用
-(element as HTMLElement).style.color = "red"; // 断言 不能断言不存在的属性
+(<HTMLElement>element).style.color = 'red'; // 这个和jsx语法有冲突 尽量不采用
+(element as HTMLElement).style.color = 'red'; // 断言 不能断言不存在的属性
 // 双重断言（不建议使用 会破坏原有类型）
 //(element as any) as boolean;
 
@@ -172,13 +172,13 @@ let str: string | number; //当没有初始化的时候 只能调用两者类型
 str = 1; // 会根据赋值来推导后续的方法
 str.toFixed();
 
-str = "abc";
+str = 'abc';
 str.toLowerCase();
 
 // 字面量类型
-type Direction = "up" | "down" | "left" | "right"; // 类型别名
+type Direction = 'up' | 'down' | 'left' | 'right'; // 类型别名
 let direction: Direction;
-direction = "up";
+direction = 'up';
 
 // 对象类型 非原始数据类型 object
 const create = (obj: object) => {};

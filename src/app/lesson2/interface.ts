@@ -10,8 +10,8 @@ interface Person {
 
 let cf: Person = {
   id: 11,
-  name: "dd",
-  age: 12,
+  name: 'dd',
+  age: 12
 };
 
 // 接口 描述对象的形状， 根据接口提供一些新的类 为别人使用
@@ -123,11 +123,11 @@ interface ChineseSpeakable {
 }
 class Speak implements Speakable, ChineseSpeakable {
   speakChinese(): void {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
   name!: string;
   speak(): string {
-    return "speak";
+    return 'speak';
   }
 }
 
@@ -166,7 +166,7 @@ interface IClass {
 function createInstance(clazz: IClass, name: string) {
   return new clazz(name);
 }
-let r = createInstance(Person, "张三");
+let r = createInstance(Person, '张三');
 
 // 1.接口可以被扩展 extends
 // 2.接口可以描述形状 对象、函数、类（? readonly）

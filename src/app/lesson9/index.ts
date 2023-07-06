@@ -5,11 +5,11 @@
 // 什么时候标识类型 什么时候不用标识
 // ts自带类型推导的功能
 let name; //当没有赋值的时候 默认是any
-name = "cf"; // any
+name = 'cf'; // any
 name = 11; // any
 
 // 默认在初始化的时候会进行类型推导
-let name1 = "yycf";
+let name1 = 'yycf';
 
 // ------------------------
 

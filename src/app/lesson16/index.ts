@@ -15,9 +15,9 @@ interface Person {
 type Partial<T> = { [K in keyof T]?: T[K] };
 type MyPartialPerson = Partial<Person>;
 let myPartialPerson: MyPartialPerson = {
-  name: "cf",
+  name: 'cf',
   age: 11,
-  address: "hz",
+  address: 'hz'
 };
 
 //    取出类型中的key 进行依次循环
@@ -27,8 +27,8 @@ type DeepPartial<T> = {
 type DeepPartialPerson = DeepPartial<Person>;
 let person: DeepPartialPerson = {
   company: {
-    address: "",
-  },
+    address: ''
+  }
 };
 
 // 实现一个深层次的嵌套树类型 children 可能就是可有可无
@@ -36,14 +36,14 @@ let person: DeepPartialPerson = {
 type Required<T> = { [K in keyof T]-?: T[K] };
 type MyRequiredPerson = Required<Person>;
 let myRequiredPerson: MyRequiredPerson = {
-  name: "cf", // name 变为必填项
+  name: 'cf', // name 变为必填项
   age: 11,
-  address: "hz",
+  address: 'hz',
   company: {
-    address: "",
-    name: "dd",
+    address: '',
+    name: 'dd'
     // age 仍然是可选项
-  },
+  }
 };
 
 type DeepRequired<T> = {
@@ -53,14 +53,14 @@ type DeepRequired<T> = {
 type MyDeepRequiredPerson = DeepRequired<Person>;
 
 let myDeepRequiredPerson: MyDeepRequiredPerson = {
-  name: "cf",
+  name: 'cf',
   age: 33,
-  address: "333",
+  address: '333',
   company: {
-    name: "",
-    address: "",
-    age: 11, // 此处age变为必填项
-  },
+    name: '',
+    address: '',
+    age: 11 // 此处age变为必填项
+  }
 };
 
 type Readonly<T> = { readonly [K in keyof T]: T[K] };
@@ -68,15 +68,15 @@ type MyReadonlyPerson = Readonly<Person>;
 
 let myReadonlyPerson: MyReadonlyPerson = {
   age: 11,
-  name: "yc",
-  address: "hz",
+  name: 'yc',
+  address: 'hz',
   company: {
     age: 18,
-    address: "xh",
-    name: "cf",
-  },
+    address: 'xh',
+    name: 'cf'
+  }
 };
-myReadonlyPerson.company.address = "hhh"; // company里层仍然可以修改
+myReadonlyPerson.company.address = 'hhh'; // company里层仍然可以修改
 
 type MyDeepReadonly<T> = {
   readonly [K in keyof T]: T[K] extends object ? MyDeepReadonly<T[K]> : T[K];
@@ -84,13 +84,13 @@ type MyDeepReadonly<T> = {
 type MyDeepReadonlyPerson = MyDeepReadonly<Person>;
 let myDeepReadonlyPerson: MyDeepReadonlyPerson = {
   age: 11,
-  name: "yc",
-  address: "hz",
+  name: 'yc',
+  address: 'hz',
   company: {
-    address: "xh",
+    address: 'xh',
     age: 13,
-    name: "cf",
-  },
+    name: 'cf'
+  }
 };
 // myDeepReadonlyPerson.company.address = "hh"; // 无法为“address”赋值，因为它是只读属性
 
@@ -98,22 +98,20 @@ let myDeepReadonlyPerson: MyDeepReadonlyPerson = {
 
 // 抽离 多个选某几个 Pick 是从某个类型中挑选属性
 type Pick<T, K extends keyof T> = { [X in K]: T[X] };
-type MyPickPerson = Pick<Person, "name" | "age">;
+type MyPickPerson = Pick<Person, 'name' | 'age'>;
 
 let myPickPerson: MyPickPerson = {
   age: 22,
-  name: "d",
+  name: 'd'
 };
 
 type Head<T extends string> = T extends `${infer First}.${string}` ? First : T;
 
-type Tail<T extends string> = T extends `${string}.${infer Rest}`
-  ? Rest
-  : never;
+type Tail<T extends string> = T extends `${string}.${infer Rest}` ? Rest : never;
 
-type a = Head<"company.age">; // company
-type b = Extract<"company.age", `${"company"}.${string}`>; // company.age
-type e = Tail<Extract<"company.age", `${"company"}.${string}`>>; // age
+type a = Head<'company.age'>; // company
+type b = Extract<'company.age', `${'company'}.${string}`>; // company.age
+type e = Tail<Extract<'company.age', `${'company'}.${string}`>>; // age
 type DeepPick<T, K extends string> = T extends object
   ? {
       [P in Head<K> & keyof T]: T[P] extends readonly unknown[]
@@ -122,12 +120,12 @@ type DeepPick<T, K extends string> = T extends object
     }
   : T;
 
-type MyDeepPickPerson = DeepPick<Person, "name" | "company.age">;
+type MyDeepPickPerson = DeepPick<Person, 'name' | 'company.age'>;
 let myDeepPickPerson: MyDeepPickPerson = {
-  name: "cf",
+  name: 'cf',
   company: {
-    age: 13,
-  },
+    age: 13
+  }
 };
 interface TestBook {
   id: string;
@@ -140,12 +138,12 @@ interface TestUser {
   books: TestBook[];
   book: TestBook;
 }
-type d = TestUser["books"][0]; //TestBook
-type c = Tail<Extract<"books.name", `${"books"}.${string}`>>; // name
-type MyDeepArrayPickPerson = DeepPick<TestUser, "books.name">;
+type d = TestUser['books'][0]; //TestBook
+type c = Tail<Extract<'books.name', `${'books'}.${string}`>>; // name
+type MyDeepArrayPickPerson = DeepPick<TestUser, 'books.name'>;
 
 let myArrayPickPerson: MyDeepArrayPickPerson = {
-  books: [{ name: "" }],
+  books: [{ name: '' }]
 };
 
 // Record记录
@@ -156,8 +154,8 @@ type Record<K extends keyof any, T> = {
   //   [key: number]: any;
   [P in K]: T;
 };
-let obj: Record<string | number, any> = { name: "cf", age: 11 };
-let arr: Record<number, any> = ["2", 55];
+let obj: Record<string | number, any> = { name: 'cf', age: 11 };
+let arr: Record<number, any> = ['2', 55];
 // map 方法
 // name,age = T
 // zf 11 = k
@@ -176,7 +174,7 @@ function map<T extends keyof any, K, U>(
   return result;
 }
 // extends keyof any = string | number | symbol
-let r = map({ name: "cf", age: 29 }, (item, key) => {
+let r = map({ name: 'cf', age: 29 }, (item, key) => {
   return 123;
 });
 
@@ -186,13 +184,13 @@ interface IPerson {
   age: number;
   company: Company;
 }
-type iPerson = Omit<IPerson, "company"> & { company?: Company };
+type iPerson = Omit<IPerson, 'company'> & { company?: Company };
 let p: iPerson = {
-  name: "cf",
-  age: 11,
+  name: 'cf',
+  age: 11
 };
 
-type MyExtract = Pick<IPerson, Exclude<keyof IPerson, "company">>; // 排除company
+type MyExtract = Pick<IPerson, Exclude<keyof IPerson, 'company'>>; // 排除company
 type Omit<K, T extends keyof any> = Pick<K, Exclude<keyof K, T>>;
 
 // Exclude Extract Required Readonly Partial Omit
