@@ -4,11 +4,6 @@
   "description": "learn typescript",
   "main": "index.js",
   "types": "index.d.ts",
-  "engines": {
-    "node": "^14.18.0 || ^16.10.0 || >=18.10.0",
-    "yarn": ">=1.22.4 <2",
-    "npm": "Please use yarn instead of NPM to install dependencies"
-  },
   "typesVersions": {
     ">=4.2": {
       "*": [
@@ -37,7 +32,6 @@
     "analyzer": "webpack-bundle-analyzer --port 8888 ./dist/stats.json",
     "clean": "rimraf ./dist",
     "build-css": "sass ./src/index.scss ./dist/index.css",
-    "prepublishOnly": "npm run pre-commit && npm run build-umd-esm-cjs",
     "build:umd": "cross-env NODE_ENV=production UMD_LIBRARY=MyLibrary webpack build",
     "build:esm": "tsc -p tsconfig.build.json -m es6 --outDir dist/esm",
     "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
@@ -46,15 +40,26 @@
     "cypress:run": "concurrently  --kill-others  --success=first \" npm start \" \" wait-on http://localhost:8080 && cypress run \" ",
     "prettier": "prettier -c --write  **/* --cache",
     "prepare": "husky install",
-    "pre-commit": "lint-staged && cross-env CI=true npm test && npm run cypress:run"
+    "pre-commit": "lint-staged",
+    "release": "semantic-release"
   },
   "author": "yanyunchangfeng <yanyunchangfeng@gmail.com> (https://github.com/yanyunchangfeng)",
   "license": "MIT",
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yanyunchangfeng/learn-typescript.git"
+  },
   "keywords": [],
   "devDependencies": {
+    "semantic-release": "24.1.2",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/commit-analyzer": "13.0.0",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/npm": "12.0.1",
+    "@semantic-release/release-notes-generator": "14.0.1",
     "@types/jest": "29.2.5",
     "@types/node": "18.11.18",
     "@types/webpack-env": "1.16.3",
@@ -94,8 +99,8 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
-  "lint-staged":{
-    "*.{ts,tsx,js,jsx}":"prettier --write --ignore-unknown",
-    "*.{json,less,scss,md}":"prettier -write --ignore-unknown"
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": "prettier --write --ignore-unknown",
+    "*.{json,less,scss,md}": "prettier -write --ignore-unknown"
   }
 }

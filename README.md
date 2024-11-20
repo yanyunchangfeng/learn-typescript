@@ -1,3 +1,11 @@
+[![Test Coverage](https://github.com/yanyunchangfeng/learn-typescript/actions/workflows/test.yml/badge.svg)](https://github.com/yanyunchangfeng/learn-typescript/actions/workflows/test.yml/?query=branch:main) [![codecov](https://codecov.io/gh/yanyunchangfeng/learn-typescript/branch/main/graph/badge.svg)](https://codecov.io/gh/yanyunchangfeng/learn-typescript) [![Deploy](https://github.com/yanyunchangfeng/learn-typescript/workflows/Deploy/badge.svg)](https://github.com/yanyunchangfeng/learn-typescript/actions/workflows/deploy.yml)
+
+[![npm latest version](https://img.shields.io/npm/v/learn-typescript/latest.svg)](https://www.npmjs.com/package/learn-typescript)
+
+<p align="center">
+    <img width="300" src="src/assets/img/yanyunchangfeng.png">
+</p>
+
 ## 介绍
 
 你好，我是[燕云长风](https://yanyunchangfeng.github.io)。寓意：结合李白著名的边塞诗《关山月》取【燕云长风】—— 长风几万里，吹度玉门关。
@@ -5,8 +13,8 @@
 ## 用法
 
 ```
-  yarn or npm i
-  yarn start or npm start
+  pnpm i
+  pnpm start
 ```
 
 ## typescript 的讲解演示:
@@ -45,20 +53,20 @@
 ## 单元测试
 
 ```
-   yarn test or npm run test
+   pnpm test
 ```
 
 ## 端到端测试
 
 ```
-   yarn cypress:open or  npm run cypress:open
-   yarn cypress:run or  npm run cypress:run
+   pnpm cypress:open
+   pnpm cypress:run
 ```
 
 ## 打包分析
 
 ```
-   yarn build-analyzer or npm run build-analyzer
+   pnpm build-analyzer
 ```
 
 ## 社交主页
